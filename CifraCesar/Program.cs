@@ -31,7 +31,25 @@ namespace CifraCesar
 
             }
 
-            
+            if (option == 1)
+            {
+                //Gerar tratamento para caracteres especiais
+                Console.WriteLine("Informe o valor da cifra para criptografia (sem caracteres especiais): ");
+                int cifra = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Informe a mensagem que deseja criptografar sem acentos ou caracteres especiais: ");
+                string msg = Console.ReadLine().ToLower();
+
+                Console.WriteLine("A mensagem cifrada é: ");
+
+                foreach (char c in msg)
+                    Console.Write((char)((int)c + cifra));
+
+                //Gerar SHA-1
+
+                Console.ReadKey();
+            }
+
         }
     }
 }
