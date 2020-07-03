@@ -50,6 +50,26 @@ namespace CifraCesar
                 Console.ReadKey();
             }
 
+
+            else if (option == 2)
+            {
+
+                //Gerar tratamento para caracteres especiais
+                Console.WriteLine("Informe o valor da cifra para descriptografar (sem caracteres especiais): ");
+                int cifra = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Informe a mensagem que deseja descriptografar sem acentos ou caracteres especiais: ");
+                string msg = Console.ReadLine().ToLower();
+
+                Console.WriteLine("A mensagem decifrada é: ");
+
+                foreach (char c in msg)
+                    Console.Write((char)((int)c - cifra));
+
+                //Gerar SHA-1
+
+                Console.ReadKey();
+            }
         }
     }
 }
