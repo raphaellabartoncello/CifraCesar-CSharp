@@ -15,5 +15,5 @@ Essa solução possibilita a criptografia e a descriptografia utilizando a cifra
 
 <h2>Demonstração</h2>
 
-<img src="./CifraCesar/img/Demo-Crypt.png">
-<img src="./CifraCesar/img/Demo-Decrypt.png">
+<img src="./CifraCesar/img/Demo-Crypt.PNG">
+<img src="./CifraCesar/img/Demo-Decrypt.PNG">
