@@ -1,4 +1,4 @@
-﻿<img src="./CifraCesar/img/ceasar.jpg" height="150" width="150">
+﻿<img src="./CifraCesar/img/ceasar.png" height="150" width="150">
 
 <h1><img src="./CifraCesar/img/cadeado.jpg" height="45" width="45"> Criptografia de César em C# </h1>
 
@@ -15,5 +15,5 @@ Essa solução possibilita a criptografia e a descriptografia utilizando a cifra
 
 <h2>Demonstração</h2>
 
-<img src="./CifraCesar/img/Demo-Crypt.jpg">
-<img src="./CifraCesar/img/Demo-Decrypt.jpg">
+<img src="./CifraCesar/img/Demo-Crypt.png">
+<img src="./CifraCesar/img/Demo-Decrypt.png">
