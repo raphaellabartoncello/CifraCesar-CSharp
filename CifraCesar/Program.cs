@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace CifraCesar
 {
@@ -67,6 +62,7 @@ namespace CifraCesar
                     Console.Write((char)((int)c + cifra));
 
                 Console.ReadKey();
+
             }
 
 
@@ -77,7 +73,7 @@ namespace CifraCesar
                 Console.WriteLine("Informe o valor da cifra para descriptografar: ");
                 int cifra = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Informe a mensagem que deseja descriptografar sem acentos ou caracteres especiais: ");
+                Console.WriteLine("Informe a mensagem que deseja descriptografar: ");
                 string msg = Console.ReadLine().ToLower();
 
                 Console.WriteLine("A mensagem decifrada é: ");
@@ -86,6 +82,7 @@ namespace CifraCesar
                     Console.Write((char)((int)c - cifra));
 
                 Console.ReadKey();
+
             }
         }
     }
