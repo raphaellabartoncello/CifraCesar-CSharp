@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CifraCesar
@@ -23,6 +24,7 @@ namespace CifraCesar
             Console.Write("|---------------------------------|\n");
 
             //Receber a opção (virá como string) e armazenar como int
+            
             int option = int.Parse(Console.ReadLine());
 
             if (option != 1 && option != 2 && option != 0)
@@ -33,19 +35,36 @@ namespace CifraCesar
 
             if (option == 1)
             {
-                //Gerar tratamento para caracteres especiais
-                Console.WriteLine("Informe o valor da cifra para criptografia (sem caracteres especiais): ");
+                //Gerar tratamento para caracteres especiais e espaços
+                Console.WriteLine("Informe o valor da cifra para criptografia: ");
                 int cifra = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Informe a mensagem que deseja criptografar sem acentos ou caracteres especiais: ");
-                string msg = Console.ReadLine().ToLower();
+                Console.WriteLine("Informe a mensagem que deseja criptografar\nImportante: Os caracteres especiais serão ignorados, acentuação é aceita normalmente. ");
+                string msg = Console.ReadLine();
+
+                //Tratamento de caracteres especiais
+                string[] comAcento = new string[] { "ç", "Ç", "á", "é", "í", "ó", "ú", "ý", "Á", "É", "Í", "Ó", "Ú", "Ý", "à", "è", "ì", "ò", "ù", "À", "È", "Ì", "Ò", "Ù", "ã", "õ", "ñ", "ä", "ë", "ï", "ö", "ü", "ÿ", "Ä", "Ë", "Ï", "Ö", "Ü", "Ã", "Õ", "Ñ", "â", "ê", "î", "ô", "û", "Â", "Ê", "Î", "Ô", "Û" };
+
+                string[] semAcento = new string[] { "c", "C", "a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y", "a", "e", "i", "o", "u", "A", "E", "I", "O", "U", "a", "o", "n", "a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "A", "O", "N", "a", "e", "i", "o", "u", "A", "E", "I", "O", "U" };
+
+                for (int i = 0; i < comAcento.Length; i++)
+                {
+                    msg = msg.Replace(comAcento[i], semAcento[i]);
+                }
+                /** Troca os caracteres especiais da string por "" inclusive espaços **/
+                string[] caracteresEspeciais = { "¹", "²", "³", "£", "¢", "¬", "º", "¨", "\"", "'", ".", ",", "-", ":", "(", ")", "ª", "|", "\\\\", "°", "_", "@", "#", "!", "$", "%", "&", "*", ";", "/", "<", ">", "?", "[", "]", "{", "}", "=", "+", "§", "´", "`", "^", "~"," " };
+
+                for (int i = 0; i < caracteresEspeciais.Length; i++)
+                {
+                    msg = msg.Replace(caracteresEspeciais[i], "");
+                }
+
+                msg = msg.Trim().ToLower();
 
                 Console.WriteLine("A mensagem cifrada é: ");
 
                 foreach (char c in msg)
                     Console.Write((char)((int)c + cifra));
-
-                //Gerar SHA-1
 
                 Console.ReadKey();
             }
@@ -55,7 +74,7 @@ namespace CifraCesar
             {
 
                 //Gerar tratamento para caracteres especiais
-                Console.WriteLine("Informe o valor da cifra para descriptografar (sem caracteres especiais): ");
+                Console.WriteLine("Informe o valor da cifra para descriptografar: ");
                 int cifra = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Informe a mensagem que deseja descriptografar sem acentos ou caracteres especiais: ");
@@ -65,8 +84,6 @@ namespace CifraCesar
 
                 foreach (char c in msg)
                     Console.Write((char)((int)c - cifra));
-
-                //Gerar SHA-1
 
                 Console.ReadKey();
             }
